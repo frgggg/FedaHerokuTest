@@ -12,13 +12,6 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-bootJar {
-    baseName = 'FedaHerokuTest'
-    group 'frg.heroku.test'
-    mainClassName = 'frg.heroku.test.FedaHerokuTest'
-    version =  ''
-}
-
 repositories {
     mavenCentral()
 }
@@ -39,7 +32,13 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
 }
 
-
+/*
+bootJar {
+    baseName = 'FedaHerokuTest'
+    group 'frg.heroku.test'
+    mainClassName = 'frg.heroku.test.FedaHerokuTest'
+    version =  ''
+}
 task stage(type: Copy, dependsOn: [clean, build]) {
     from jar.archivePath
     into project.rootDir
@@ -48,5 +47,14 @@ task stage(type: Copy, dependsOn: [clean, build]) {
     }
 }
 stage.mustRunAfter(clean)
+*/
+
+jar {
+    baseName = 'FedaHerokuTest'
+    version = ''
+}
+task stage {
+    dependsOn build
+}
 
 
