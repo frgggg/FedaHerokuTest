@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/FedaHerocuTest.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar app.jar
