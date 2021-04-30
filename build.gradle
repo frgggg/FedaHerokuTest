@@ -43,6 +43,11 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
 }
 
+jar {
+    baseName = 'app'
+    version = ''
+}
+
 task stage(type: Copy, dependsOn: [clean, build]) {
     from jar.archivePath
     into project.rootDir
