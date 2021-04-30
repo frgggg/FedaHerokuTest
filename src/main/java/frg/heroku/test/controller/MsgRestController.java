@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("msg")
+@RequestMapping("/msg")
 public class MsgRestController {
     private MsgService msgService;
 
@@ -20,7 +20,7 @@ public class MsgRestController {
 
     @GetMapping("")
     public String hello() {
-        return "Hello from Feda And Heroku test!!!";
+        return "Hello from Feda And Heroku Test MsgRestController class!!!";
     }
 
     @PostMapping("")
