@@ -52,6 +52,7 @@ stage.mustRunAfter(clean)
 jar {
     baseName = 'FedaHerokuTest'
     version = ''
+    enabled=true
 }
 task stage(type: Copy, dependsOn: [clean, build]) {
     from jar.archivePath
