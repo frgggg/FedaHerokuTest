@@ -32,17 +32,14 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
 }
 
-springBoot {
-    mainClassName = 'frg.heroku.test.FedaHerokuTest'
-}
-
+/*
 bootJar {
     baseName = 'FedaHerokuTest'
     group 'frg.heroku.test'
     mainClassName = 'frg.heroku.test.FedaHerokuTest'
     version =  ''
 }
-
+*/
 
 jar {
     baseName = 'FedaHerokuTest'
@@ -56,6 +53,7 @@ jar {
     }
 }
 
+/*
 task fatJar(type: Jar) {
     manifest.from jar.manifest
     from {
@@ -71,6 +69,7 @@ task fatJar(type: Jar) {
 artifacts {
     archives fatJar
 }
+*/
 
 task stage(type: Copy, dependsOn: [clean, build]) {
     from jar.archivePath
