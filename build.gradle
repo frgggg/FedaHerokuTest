@@ -53,17 +53,17 @@ jar {
     baseName = 'FedaHerokuTest'
     version = ''
     enabled=true
+    manifest {
+        attributes(
+                'Main-Class': 'frg.heroku.test.FedaHerokuTest'
+        )
+    }
 }
 task stage(type: Copy, dependsOn: [clean, build]) {
     from jar.archivePath
     into project.rootDir
     rename {
         'app.jar'
-    }
-    manifest {
-        attributes(
-                'Main-Class': 'frg.heroku.test.FedaHerokuTest'
-        )
     }
 }
 stage.mustRunAfter(clean)
