@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/msg")
+@RequestMapping("/")
 public class RootController {
     @GetMapping("")
     public String hello() {
