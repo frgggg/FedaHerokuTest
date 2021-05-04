@@ -1,6 +1,7 @@
 package frg.heroku.test.payload.req;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import frg.heroku.test.model.AliceRequestRequest;
 import frg.heroku.test.model.AliceResponseSession;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,4 +17,7 @@ public class AliceRequest {
 
     @JsonProperty("version")
     private String version;
+
+    @JsonProperty("request")
+    private AliceRequestRequest aliceRequestRequest;
 }
