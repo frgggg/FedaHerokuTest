@@ -56,22 +56,28 @@ jar {
     }
 }
 
-/*task stage(type: Copy, dependsOn: [clean, build]) {
-    from jar.archivePath
-    into project.rootDir
-    rename {
-        'app.jar'
+task fatJar(type: Jar) {
+    manifest.from jar.manifest
+    from {
+        configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
     }
-}*/
-task stage(type: Copy, dependsOn: [clean, build, bootJar]) {
+    with jar
+}
+
+artifacts {
+    archives fatJar
+}
+
+task stage(type: Copy, dependsOn: [clean, build]) {
     from jar.archivePath
     into project.rootDir
     rename {
         'app.jar'
     }
 }
-
-bootJar.mustRunAfter(clean)
-stage.mustRunAfter(bootJar)
 
 
