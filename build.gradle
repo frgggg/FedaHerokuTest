@@ -1,3 +1,4 @@
+/* IT"S WORK!!! */
 buildscript {
     repositories {
         mavenCentral()
