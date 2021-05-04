@@ -32,6 +32,10 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
 }
 
+springBoot {
+    mainClassName = 'frg.heroku.test.FedaHerokuTest'
+}
+
 bootJar {
     baseName = 'FedaHerokuTest'
     group 'frg.heroku.test'
@@ -60,13 +64,14 @@ jar {
         'app.jar'
     }
 }*/
-task stage(type: Copy, dependsOn: [clean, bootJar]) {
+task stage(type: Copy, dependsOn: [clean, build, bootJar]) {
     from jar.archivePath
     into project.rootDir
     rename {
         'app.jar'
     }
 }
+
 bootJar.mustRunAfter(clean)
 stage.mustRunAfter(bootJar)
 
