@@ -67,7 +67,6 @@ task stage(type: Copy, dependsOn: [clean, bootJar]) {
         'app.jar'
     }
 }
-stage.mustRunAfter(clean)
 bootJar.mustRunAfter(clean)
 stage.mustRunAfter(bootJar)
 
