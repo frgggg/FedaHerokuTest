@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AliceRestController {
 
     @PostMapping("")
-    public String repeat(@RequestBody AliceRequest req) {
+    public AliceResponse repeat(@RequestBody AliceRequest req) {
         AliceResponse res = new AliceResponse();
 
         res.setAliceResponseSession(req.getAliceResponseSession());
@@ -26,7 +26,7 @@ public class AliceRestController {
                 new AliceResponseResponse("Hello from Herocu and Fedor to Alice!!!", false)
         );
 
-        return "Wow!";
+        return res;
     }
 
 }
