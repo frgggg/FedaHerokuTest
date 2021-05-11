@@ -7,6 +7,9 @@ import frg.heroku.test.service.AliceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Slf4j
 @Service
 public class AliceServiceImpl implements AliceService {
@@ -22,10 +25,12 @@ public class AliceServiceImpl implements AliceService {
         res.setAliceResponseSession(req.getAliceResponseSession());
         res.setVersion(req.getVersion());
 
+        String reg = "[Пп]ривет\\.*";
+
         log.info("req = " + req);
         log.info("req.getAliceRequestRequest().getOriginalUtterance() = " + req.getAliceRequestRequest().getOriginalUtterance());
         if(
-                req.getAliceRequestRequest().getOriginalUtterance().equalsIgnoreCase("Привет.")
+                Pattern.matches(reg, req.getAliceRequestRequest().getOriginalUtterance())
         ) {
             res.setAliceResponseResponse(
                     new AliceResponseResponse("И тебе привет от ПЭС!!!", false)
