@@ -23,9 +23,9 @@ public class AliceServiceImpl implements AliceService {
         res.setVersion(req.getVersion());
 
         log.info("req = " + req);
-
+        log.info("req.getAliceRequestRequest().getOriginalUtterance() = " + req.getAliceRequestRequest().getOriginalUtterance());
         if(
-                req.getAliceRequestRequest().getOriginalUtterance().contains("Привет")
+                req.getAliceRequestRequest().getOriginalUtterance().equalsIgnoreCase("Привет.")
         ) {
             res.setAliceResponseResponse(
                     new AliceResponseResponse("И тебе привет от ПЭС!!!", false)
