@@ -29,6 +29,9 @@ public class AliceServiceImpl implements AliceService {
 
         log.info("req = " + req);
         log.info("req.getAliceRequestRequest().getOriginalUtterance() = " + req.getAliceRequestRequest().getOriginalUtterance());
+        for(String token: req.getAliceRequestRequest().getAliceRequestNlu().getTokens()) {
+            log.info("    token = " + token);
+        }
         if(
                 Pattern.matches(reg, req.getAliceRequestRequest().getOriginalUtterance())
         ) {
@@ -40,7 +43,7 @@ public class AliceServiceImpl implements AliceService {
                     new AliceResponseResponse("Ты сказал:\"" + req.getAliceRequestRequest().getOriginalUtterance() + "\".", false)
             );
         }
-
+        log.info("");
         return res;
     }
 }
