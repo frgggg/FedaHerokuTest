@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Slf4j
 @RestController
 @RequestMapping("/alice")
@@ -26,7 +28,11 @@ public class AliceRestController {
     }
 
     @PostMapping("")
-    public AliceResponse repeat(@RequestBody AliceRequest req) {
+    public AliceResponse repeat(@RequestBody AliceRequest req, HttpServletRequest request) {
+        log.info("---------------");
+        log.info("1) request.getRequestURI().toString() = " + request.getRequestURI());
+        log.info("2) request.getRequestURL().toString() = " + request.getRequestURL().toString());
+        log.info("---------------");
         return aliceService.call(req);
     }
 

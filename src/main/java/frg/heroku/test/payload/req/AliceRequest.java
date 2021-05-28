@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AliceRequest {
-    //TODO
     @JsonProperty("session")
     private AliceRequestSession aliceRequestSession;
 
