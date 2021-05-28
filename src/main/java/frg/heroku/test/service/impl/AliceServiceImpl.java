@@ -22,7 +22,7 @@ public class AliceServiceImpl implements AliceService {
     protected AliceResponse testResProc(AliceRequest req) {
         AliceResponse res = new AliceResponse();
 
-        res.setAliceResponseSession(req.getAliceResponseSession());
+        res.setAliceResponseSession(req.getAliceRequestSession());
         res.setVersion(req.getVersion());
 
         String reg = "[Пп]ривет\\.*";

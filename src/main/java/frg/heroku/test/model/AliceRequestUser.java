@@ -8,11 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AliceResponseUser {
+public class AliceRequestUser {
     @JsonProperty("user_id")
     private String userId;
-
-    public AliceResponseUser(AliceRequestUser aliceRequestUser) {
-        userId = aliceRequestUser.getUserId();
-    }
 }
